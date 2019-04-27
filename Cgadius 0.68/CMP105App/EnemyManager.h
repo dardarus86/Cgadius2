@@ -41,6 +41,6 @@ private:
 	BulletManager* bulletManager;
 	AudioManager audioManager;
 
-	float timer;
+
 	int enemyhp;
 };

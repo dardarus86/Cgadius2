@@ -31,7 +31,7 @@ Enemy::~Enemy()
 
 void Enemy::update(float dt)
 {
-	
+
 	currentAnimation->animate(dt);
 	move(velocity*dt);
 
@@ -47,7 +47,7 @@ void Enemy::collision(float dt)
 {
 	currentAnimation = &explosion;
 	setTextureRect(explosion.getCurrentFrame());
-	velocity.y = 0;
+		velocity.y = 0;
 }
 
 

@@ -3,7 +3,7 @@
 // constructor setting the timr for explosion animation to zero, loading texture and audiop file for enemy and populationg the Enemy vector
 EnemyManager::EnemyManager()
 {
-	timer = 0;
+
 	Enemytexture.loadFromFile("gfx/enemy1sheet.png");
 	audioManager.addSound("sfx/enemydeath.wav", "enemydeath");
 	for (int i = 0; i < 94; i++)
@@ -24,7 +24,6 @@ EnemyManager::~EnemyManager()
 
 void EnemyManager::update(float dt, Player &player)
 {
-	
 	// two new vectors getting populated by the walls and bullets from the other classes
 	std::vector<Wall> walls1 = wallManager->getWalls1();
 	std::vector<Bullet>* bullet1 = bulletManager->getBullets();
@@ -42,9 +41,7 @@ void EnemyManager::update(float dt, Player &player)
 			}
 		}
 	}
-
-
-
+	
 	/////// BULLET COLLISION  /////////
 	// loops through the bullet vector and the enemy vector checking for collisions. Using the provided collision for this as the shots only hit the left side of enemies
 	// what should happen is, a bullet will hit an enemy, the bullet will dissapear, the enemy will dissapear and then the explosion animation will play inside the enemy class
@@ -56,24 +53,15 @@ void EnemyManager::update(float dt, Player &player)
 			
 			if (Collision::checkBoundingBox(&enemy, &bullet))
 			{
-				timer += dt;
+				
 				if (enemy.isAlive())
-				{
+				{	
+					enemy.collision(dt);
+					audioManager.playSoundbyName("enemydeath");
+					bullet.setAlive(false);
+					enemy.setPosition(-100, 0);
+					player.setScore(100);
 					
-					   
-						enemy.collision(dt);
-						audioManager.playSoundbyName("enemydeath");
-						bullet.setAlive(false);
-					
-						if (timer >= 0.5)
-						{
-							//enemy.setCollisionBox(0, 0, 0, 0);
-							enemy.setAlive(false);
-							enemy.setPosition(-100, 0);
-							player.setScore(100);
-							timer = 0;
-
-						}
 				}
 			}
 		}
