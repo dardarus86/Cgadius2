@@ -19,7 +19,6 @@ Player::Player()
 
 	forward.addFrame(sf::IntRect(479, 0, 160, 139));
 	forward.addFrame(sf::IntRect(639, 0, 160, 139));
-
 	forward.setFrameSpeed(0.1f);
 
 	back.addFrame(sf::IntRect(0, 0, 160, 139));

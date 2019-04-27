@@ -24,18 +24,18 @@ Menu::Menu(sf::RenderWindow* hwnd, Input* in, GameState *state)
 	backgroundobj.setSize(sf::Vector2f(1200, 800));
 
 	background.addFrame(sf::IntRect(0, 0, 500, 333));
-	background.addFrame(sf::IntRect(500,0 , 500, 333));
-	background.addFrame(sf::IntRect(1000,0 , 500, 333));
-	background.addFrame(sf::IntRect(1500,0, 500, 333));
+	background.addFrame(sf::IntRect(500, 0, 500, 333));
+	background.addFrame(sf::IntRect(1000, 0, 500, 333));
+	background.addFrame(sf::IntRect(1500, 0, 500, 333));
 	background.addFrame(sf::IntRect(2000, 0, 500, 333));
-	background.addFrame(sf::IntRect(2500,0, 500, 333));
-	background.addFrame(sf::IntRect(3000,0 , 500, 333));
+	background.addFrame(sf::IntRect(2500, 0, 500, 333));
+	background.addFrame(sf::IntRect(3000, 0, 500, 333));
 	background.addFrame(sf::IntRect(3500, 0, 500, 333));
-	background.addFrame(sf::IntRect(4000,0 , 500, 333));
+	background.addFrame(sf::IntRect(4000, 0, 500, 333));
 	background.addFrame(sf::IntRect(4500, 0, 500, 333));
 	background.addFrame(sf::IntRect(5000, 0, 500, 333));
-	background.addFrame(sf::IntRect(5500,0 , 500, 333));
-	background.addFrame(sf::IntRect(6000,0 , 500, 333));
+	background.addFrame(sf::IntRect(5500, 0, 500, 333));
+	background.addFrame(sf::IntRect(6000, 0, 500, 333));
 	background.setFrameSpeed(0.1f);
 
 	background.getCurrentFrame();

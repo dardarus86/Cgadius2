@@ -7,6 +7,8 @@
 #include "Framework/Collision.h"
 #include "WallManager.h"
 #include <vector>
+#include <SFML/Audio.hpp>
+#include "Framework/AudioManager.h"
 
 
 class BulletManager : public GameObject
@@ -38,6 +40,7 @@ private:
 	std::vector<Bullet> eBullet;
 	sf::Texture texture;
 	sf::Texture enemyTexture;
+	AudioManager audioManager;
 	sf::RenderWindow* window;
 	WallManager* wallManager;
 	

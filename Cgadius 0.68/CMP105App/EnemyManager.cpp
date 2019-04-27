@@ -3,9 +3,8 @@
 // constructor setting the timr for explosion animation to zero, loading texture and audiop file for enemy and populationg the Enemy vector
 EnemyManager::EnemyManager()
 {
-
-	Enemytexture.loadFromFile("gfx/enemy1sheet.png");
 	audioManager.addSound("sfx/enemydeath.wav", "enemydeath");
+	Enemytexture.loadFromFile("gfx/enemy1sheet.png");
 	for (int i = 0; i < 94; i++)
 	{
 		Enemygrey.push_back(Enemy());
@@ -19,7 +18,6 @@ EnemyManager::EnemyManager()
 
 EnemyManager::~EnemyManager()
 {}
-
 
 
 void EnemyManager::update(float dt, Player &player)
@@ -56,14 +54,25 @@ void EnemyManager::update(float dt, Player &player)
 				
 				if (enemy.isAlive())
 				{	
+					
 					enemy.collision(dt);
 					audioManager.playSoundbyName("enemydeath");
 					bullet.setAlive(false);
 					enemy.setPosition(-100, 0);
 					player.setScore(100);
+
 					
 				}
 			}
+		}
+	}
+
+	for (auto& enemy : Enemygrey)
+	{
+		if (Collision::checkBoundingBox(&enemy, &player))
+		{
+			player.setScore(-100);
+			player.setPosition(player.getPosition().x - 50, player.getPosition().y);
 		}
 	}
 
@@ -191,7 +200,7 @@ void EnemyManager::spawn()
 		if (!Enemygrey[i].isAlive())
 		{
 			Enemygrey[i].setAlive(true);
-			Enemygrey[i].setVelocity(0, 50);
+			Enemygrey[i].setVelocity(0, 75);
 			return;
 		}
 	}

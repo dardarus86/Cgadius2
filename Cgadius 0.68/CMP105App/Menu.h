@@ -33,9 +33,9 @@ private:
 	sf::Text text2;
 	sf::Text text3;
 	GameObject backgroundobj;
-	
+
 	Animation background;
 	sf::Texture backgroundtexture;
 
-	
+
 };

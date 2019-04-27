@@ -1,7 +1,8 @@
-﻿  EnemyManager.cpp
+﻿  Credits.cpp
+  Main.cpp
   Generating code
-  2 of 782 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  7 of 786 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  CMP105App.vcxproj -> C:\Users\Jamie Haddow\Documents\GitHub\Cgadius\Cgadius 0.68\x64\Release\CMP105App.exe
+  CMP105App.vcxproj -> C:\Users\Jamie Haddow\Documents\GitHub\Cgadius2\Cgadius 0.68\x64\Release\CMP105App.exe

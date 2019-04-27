@@ -12,14 +12,11 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* state)
 	audioManager.addMusic("sfx/level.ogg", "level");
 	audioManager.addMusic("sfx/boss.ogg", "boss");
 	audioManager.addSound("sfx/death.wav", "death");
-
 	audioManager.addSound("sfx/enemyfire.wav", "enemyfire");
 	audioManager.addSound("sfx/enter.wav", "enter");
-
 	audioManager.addSound("sfx/pauldeath.wav", "pauldeath");
 	audioManager.addSound("sfx/paulhit.wav", "paulhit");
 	audioManager.addSound("sfx/shot.wav", "shot");
-	audioManager.addSound("sfx/shot2.wav", "shot2");
 	audioManager.addSound("sfx/shot3.ogg", "shot3");
 	audioManager.addSound("sfx/warning.wav", "warning");
 
@@ -127,11 +124,7 @@ void Level::handleInput(float dt)
 		input->setKeyUp(sf::Keyboard::Numpad0);
 		audioManager.playSoundbyName("shot");
 	}
-	if (input->isKeyDown(sf::Keyboard::Numpad1))
-	{
-		input->setKeyUp(sf::Keyboard::Numpad1);
-		audioManager.playSoundbyName("shot2");
-	}
+
 	if (input->isKeyDown(sf::Keyboard::Numpad2))
 	{
 		input->setKeyUp(sf::Keyboard::Numpad2);
@@ -173,9 +166,20 @@ void Level::handleInput(float dt)
 		view1.move(dt - 6.0f, 0);
 	}
 
+	if (input->isKeyDown(sf::Keyboard::Right))
+	{
+		view1.move(dt + .1f, 0);
+	}
+
 	if (player.getPosition().x >= 5200)
 	{
 		view1.reset(sf::FloatRect(4800.f, 0.f, 1200.f, 800.f));
+	}
+
+	if (player.getPosition().x > 5810)
+	{
+		audioManager.stopAllMusic();
+		gameState->setCurrentState(State::CREDITS);
 	}
 
 }
@@ -203,6 +207,8 @@ void Level::update(float dt)
 	{
 		audioManager.playMusicbyName("boss");
 	}
+
+
 	//class updates
 	enemyManager.update(dt, player);
 	asteroidManager.update(dt, player);
@@ -215,7 +221,13 @@ void Level::update(float dt)
 	//view1.move(30.f*dt, 0);
 //score
 	std::string score1 = std::to_string(player.getScore());
-	score.setString("00000" + score1);
+	score.setString( score1);
+	std::string outStr;
+	char buff[6];
+	snprintf(buff, sizeof(buff), "% 5.5i", player.getScore());
+	outStr.append(buff);
+	
+
 
 
 //timer on top of screen

@@ -4,6 +4,7 @@
 BulletManager::BulletManager()
 {
 	texture.loadFromFile("gfx/playerbullet.png");
+	audioManager.addSound("sfx/shot2.wav", "wallhit");
 	for (int i = 0; i < 30; i++)
 	{
 		bullet.push_back(Bullet());
@@ -49,6 +50,20 @@ void BulletManager::spawn(float x, float y)
 }
 void BulletManager::update(const float& dt)
 {
+	std::vector<Wall> walls1 = wallManager->getWalls1();
+
+	for (auto& bullet : bullet)
+	{
+		for (auto& wall : walls1)
+		{
+			if (Collision::checkBoundingBox(&bullet, &wall))
+			{
+				audioManager.playSoundbyName("wallhit");
+				bullet.setAlive(false);
+				bullet.setPosition(-100, -100);
+			}
+		}
+	}
 	for (int i = 0; i < bullet.size(); i++)
 	{
 		if (bullet[i].isAlive())

@@ -3,8 +3,7 @@
 #include <math.h>
 #include <iostream>
 #include "Framework/Collision.h"
-#include <SFML/Audio.hpp>
-#include "Framework/AudioManager.h"
+
 #include <vector>
 #include "WallManager.h"
 #include "BulletManager.h"
@@ -39,8 +38,6 @@ private:
 	
 	WallManager* wallManager;
 	BulletManager* bulletManager;
-	AudioManager audioManager;
-
-
 	int enemyhp;
+	AudioManager audioManager;
 };
