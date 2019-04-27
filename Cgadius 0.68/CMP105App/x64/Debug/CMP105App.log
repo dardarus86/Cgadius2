@@ -1,0 +1,10 @@
+﻿  AsteroidManager.cpp
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(93): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(95): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jamie haddow\documents\github\cgadius\cgadius 0.68\cmp105app\asteroidmanager.cpp(96): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  CMP105App.vcxproj -> C:\Users\Jamie Haddow\Documents\GitHub\Cgadius\Cgadius 0.68\x64\Debug\CMP105App.exe

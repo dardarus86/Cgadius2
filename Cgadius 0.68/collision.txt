@@ -1,0 +1,93 @@
+classes
+////////////////////////////
+Player
+Enemy(grey,green,purple,ground)
+bullet(player,enemy)
+asteroid
+wall
+
+what classes need what .h 
+////////////////////////////
+player.h needed h's:
+	EnemyManager.h
+	AsteroidManager.h
+	BulletManager.h ( for enemy bullets)
+	Wallmanager.h
+
+EnemyManager.h needed h's
+	doesnt need player as player destroyed in player.h
+	BulletManager.h
+	doesnt need asteroid as not interacting
+	WallManager.h // DONE
+
+BulletManager.h needed h's
+	Player.h due to Enemybullets?
+	EnemyManager.h to check for collision for hit animation
+		AsteroidManager.h to check if bullet has hit to do hit animation
+	WallManager.h to check if bullet has hit to do hit animation
+
+WallManager.h needed h's
+	None needed atm as wall is static
+
+
+breakdown of .cpp files
+////////////////////////////
+player.cpp collision: player class must react in collision with objects/ no objects reacting to colliding with player
+	if player collides with enemy / player destroyed
+	if player collides with enemy bullet / player destroyed
+	if player collides with asteroid/ player destroyed
+	if player collides with wall/ set players position 
+
+Bulletmanager.cpp collision - objects reacting to collision with bullets/ bullet must do a hit animation when collided with objects
+	if bullet collides with enemy / play bullet hit animation
+	bullet collides with asteroid / play bullet hit animation
+	bullet collides with wall / play bullet hit animation
+	bullet collides with boss / play bullet hit animation
+
+WallManager.cpp collision 
+	None - objects are colliding with IT
+	does not require interaction on WallManager.cpps end
+
+EnemyManager.cpp: Enemies must react in collision with objects. / objects must react in collision with enemy
+	if enemy collides with player / player destroyed
+	if enemy collides with bullet / enemy destroyed
+	if enemy collides with wall / reverse velocity
+	if enemy collides with asteroid / no interaction(possible asteroid reverse)
+
+AsteroidManager.cpp: Asteroids must react in collision with objects/ objects must react in collision with enemy
+	if asteroid collides with player / player destroyed 
+	if asteroid collides with bullet / asteroid destroyed / hit animation bullet
+	if asteroid collides with enemy / no interaction
+	if asteroid collides with wall / reverse velocity
+
+
+how do i get the wall vectors into asteroidmanager...
+
+1 - create 2 functions inside the wallmanager.h
+	std::vector<Wall>& getWalls1() { return walls1; } // wall1 being the name of the vector in private "std::vector<Wall> walls1;"
+	std::vector<Wall>& getWalls2() { return walls2; } // wall1 being the name of the vector in private "std::vector<Wall> walls2;"
+These functions will reference the values inside the wall1 and wall2  vectors
+Nothing else needed in wallmanager.h and .cpp
+
+2 - make  sure your level.h has the include for the wallmanager.h
+    Create an object for the wallManager in private in level.h "WallManager wallManager;"
+    This will allow level.h and .cpp to access the wallmanager class
+
+3 - inside AsteroidManager.h include wallmanager.h
+    Create a WallManager object pointer "WallManager* wallManager;"
+	create a function called setWallManager - void setWallManager(WallManager* wm)	{this->wallManager = wm;}
+
+
+
+AsteroidManager.cpp: Asteroids must react in collision with objects/ objects must react in collision with enemy
+
+
+
+
+
+
+
+    
+
+
+

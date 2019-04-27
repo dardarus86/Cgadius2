@@ -1,0 +1,17 @@
+collission enemy with player
+collission player with enemy
+enemy bullets
+collision bullets with player
+correct asteroid/asteroid collisions
+player hp
+add ground enemies
+credit screen
+
+boss
+
+
+EXTRA TIME
+smaller ship on menu
+change wall colour
+give boss extra attacks
+paul goku hair
