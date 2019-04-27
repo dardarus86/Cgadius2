@@ -1,5 +1,6 @@
 #include "EnemyManager.h"
 
+// constructor setting the timr for explosion animation to zero, loading texture and audiop file for enemy and populationg the Enemy vector
 EnemyManager::EnemyManager()
 {
 	timer = 0;
@@ -24,10 +25,11 @@ EnemyManager::~EnemyManager()
 void EnemyManager::update(float dt, Player &player)
 {
 	
+	// two new vectors getting populated by the walls and bullets from the other classes
 	std::vector<Wall> walls1 = wallManager->getWalls1();
-
 	std::vector<Bullet>* bullet1 = bulletManager->getBullets();
 	/////// WALL COLLISION  /////////
+	// If an enemy hits a wall then their velocity gets reversed
 	for (auto& wall : walls1)
 	{
 		for (auto& enemy : Enemygrey)
@@ -44,7 +46,9 @@ void EnemyManager::update(float dt, Player &player)
 
 
 	/////// BULLET COLLISION  /////////
-
+	// loops through the bullet vector and the enemy vector checking for collisions. Using the provided collision for this as the shots only hit the left side of enemies
+	// what should happen is, a bullet will hit an enemy, the bullet will dissapear, the enemy will dissapear and then the explosion animation will play inside the enemy class
+	// until the animation has finished and then it will dissapear
 	for (auto& bullet : *bullet1)
 	{
 		for (auto& enemy : Enemygrey)
@@ -63,7 +67,7 @@ void EnemyManager::update(float dt, Player &player)
 					
 						if (timer >= 0.5)
 						{
-							enemy.setCollisionBox(0, 0, 0, 0);
+							//enemy.setCollisionBox(0, 0, 0, 0);
 							enemy.setAlive(false);
 							enemy.setPosition(-100, 0);
 							player.setScore(100);
@@ -85,8 +89,7 @@ void EnemyManager::update(float dt, Player &player)
 	
 }
 
-//spawn new ball
-//find a dead ball, make alive, move to spawn point, give random velocity
+// setting all the enemy positions manually
 void EnemyManager::spawn()
 {
 //wave 1 top 4
@@ -201,7 +204,6 @@ void EnemyManager::spawn()
 		{
 			Enemygrey[i].setAlive(true);
 			Enemygrey[i].setVelocity(0, 50);
-			Enemygrey[i].setPosition(260, 300);
 			return;
 		}
 	}
