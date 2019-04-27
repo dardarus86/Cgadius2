@@ -100,11 +100,14 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* state)
 	asteroidManager.setWallManager(&wallManager);
 	asteroidManager.setBulletManager(&bulletManager);
 	//enemy manager pointers
-
 	enemyManager.setWallManager(&wallManager);
 	enemyManager.setBulletManager(&bulletManager);
+	//player pointers
+
 	player.setPWallManager(&wallManager);
 	player.setBulletManager(&bulletManager);
+	//bullet manager pointers
+	bulletManager.setWallManager(&wallManager);
 	
 
 

@@ -5,6 +5,7 @@
 #include <math.h>
 #include <iostream>
 #include "Framework/Collision.h"
+#include "WallManager.h"
 #include <vector>
 
 
@@ -25,6 +26,11 @@ public:
 	std::vector<Bullet>& getEnemyBullets() { return eBullet; }
 	float PlayerX;
 
+	void setWallManager(WallManager* wm)
+	{
+		this->wallManager = wm;
+	}
+
 
 private:
 
@@ -33,5 +39,6 @@ private:
 	sf::Texture texture;
 	sf::Texture enemyTexture;
 	sf::RenderWindow* window;
+	WallManager* wallManager;
 	
 };
